@@ -74,10 +74,26 @@ public class MerkelNode {
         }
         return size(node.left) + size(node.right) +1;
     }
+    public boolean verify(MerkelNode node)
+    {
+        if(node.head==node)
+        {
+            return true;
+        }
+        String newHash=HashAlgo.encryptThisString(node.left.hashText+node.head.right.hashText);    
+        if(!newHash.equals(node.hashText))
+            return true;
+        return verify(node.head);
+    }
 
-    
-
-
+    public boolean doesExsists(String node,MerkelNode root)
+    {
+        if(node==root.hashText)
+            return true;
+        if(root.left==null && root.right==null)
+            return false;
+        return doesExsists(node, root.head) || doesExsists(node, root.left);
+    }
 
     public static void inorder(MerkelNode node)
     {
