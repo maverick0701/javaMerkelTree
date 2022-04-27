@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.print.DocFlavor.STRING;
 public class App {
     public static void main(String[] args) throws Exception {
         ArrayList<MerkelNode>data=new ArrayList<>();
@@ -24,13 +26,14 @@ public class App {
         MerkelNode tree=new MerkelNode();MerkelNode head=tree.BuildTree(data);
         System.out.println("Size of Merel Tree is "+MerkelNode.size(head));
         MerkelNode.inorder(head);
-        if(head.doesExsists(data.get(0).hashText, head))
+        
+        if(head.doesExsists(data.get(2).hashText, head))
         {
-            System.out.println("Yes the node Exsists");
+            System.out.println("Yes the node Exists");
         }
         else
         {
-            System.out.println("The node doesnot exsist");
+            System.out.println("The node doesnot exist");
         }
     }
 }
