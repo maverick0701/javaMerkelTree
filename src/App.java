@@ -24,5 +24,13 @@ public class App {
         MerkelNode tree=new MerkelNode();MerkelNode head=tree.BuildTree(data);
         System.out.println("Size of Merel Tree is "+MerkelNode.size(head));
         MerkelNode.inorder(head);
+        if(head.doesExsists(data.get(0).hashText, head))
+        {
+            System.out.println("Yes the node Exsists");
+        }
+        else
+        {
+            System.out.println("The node doesnot exsist");
+        }
     }
 }
